@@ -20,8 +20,8 @@ interface Task {
 const fetchProjects = async () => {
   const response = await axios.get(`http://127.0.0.1:8000/api/projects/`, {
   auth: {
-    username: 'userPascal',
-    password: 'Remontada@2023',
+    username: process.env.REACT_APP_API_USERNAME,
+    password: process.env.REACT_APP_API_PASSWORD,
   },
 });
 
