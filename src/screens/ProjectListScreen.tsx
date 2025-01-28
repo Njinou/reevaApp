@@ -20,8 +20,8 @@ interface Task {
 const fetchProjects = async () => {
   const response = await axios.get(`http://127.0.0.1:8000/api/projects/`, {
   auth: {
-    username: process.env.REACT_APP_API_USERNAME,
-    password: process.env.REACT_APP_API_PASSWORD,
+    username: 'userPascal',
+    password: 'Remontada@2023',
   },
 });
 
@@ -63,7 +63,7 @@ const ProjectListScreen = ({ navigation }: any) => {
         data={data}
         renderItem={({ item }) => (
           <Pressable style={{flex:1,borderWidth:1,borderColor:'gray',justifyContent:'space-between',backgroundColor:groundColor[item.status.toLowerCase()]}}  
-          onPress={() => navigation.navigate('ProjectDetails', { projectId: item.id })}>
+          onPress={() => navigation.navigate('ProjectDetails', { project: item })}>
             <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center',padding:10}}>
                 <Text>{item.title}</Text>
                 <Text>{item.status}</Text>
